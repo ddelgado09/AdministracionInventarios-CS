@@ -22,6 +22,7 @@ public class Sesion {
 	private String usuario;
 	private String contrasena;
 	private String nombres;
+	private String rol;
 	private Timestamp fechaConexion;
 	private Connect conn;
 	
@@ -35,12 +36,14 @@ public class Sesion {
 	
 	public boolean checkUser()
 	{
-		String query = "SELECT * FROM usuarios WHERE nick = ?";
+		String query = "SELECT u.*, r.nombre AS nombre_rol FROM usuarios u "
+				+ "INNER JOIN roles r ON u.rol = r.id WHERE nick = ?";
 		int id = 0;
 		String nombres = null;
 		String nick = null;
 		String contrasena = null;
 		String hashText = null;	
+		String rol = null;
 		
 		try
 		{
@@ -53,6 +56,7 @@ public class Sesion {
 				id = rs.getInt("id");
 				nombres = rs.getString("nombre") + " " + rs.getString("apellido");
 				nick = rs.getString("nick");
+				rol = rs.getString("nombre_rol");
 				byte[] decodedBytes = Base64.getDecoder().decode(rs.getString("contrasena"));
 				contrasena = new String(decodedBytes);
 			}
@@ -61,7 +65,8 @@ public class Sesion {
 			{
 				this.id = id;
 				this.nombres = nombres;
-				return true;	
+				this.rol = rol;
+				return true;
 			}
 			else
 			{
@@ -85,6 +90,11 @@ public class Sesion {
 	public String getNombres()
 	{
 		return this.nombres;
+	}
+	
+	public String getRol()
+	{
+		return this.rol;
 	}
 	
 	public String getUsuario()
