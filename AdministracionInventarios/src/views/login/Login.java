@@ -6,6 +6,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import controller.Sesion;
+import views.menu.Menu;
 
 public class Login implements ActionListener {
 	
@@ -56,7 +57,7 @@ public class Login implements ActionListener {
 		lMensaje.setText("");
 		try {
 			String usuario = txtUsuario.getText();
-			String contrasena = txtContrasena.getPassword().toString();
+			String contrasena = new String(txtContrasena.getPassword());
 			
 			Sesion inicioSesion = new Sesion(usuario, contrasena);
 			boolean check = inicioSesion.checkUser();
@@ -67,7 +68,9 @@ public class Login implements ActionListener {
 			}
 			else
 			{
-				lMensaje.setText("Exito");
+				new Menu();
+//				lMensaje.setText("Exito");
+				
 			}
 		}
 		catch (Exception ex)
