@@ -3,27 +3,33 @@ package controller;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Base64;
-
+import java.util.Date;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.time.Instant;
 
 import model.connection.*;
 
 public class Sesion {
 
+	private int id;
 	private String usuario;
 	private String contrasena;
+	private String nombres;
+	private Timestamp fechaConexion;
 	private Connect conn;
 	
 	public Sesion(String usuario, String contrasena)
 	{
 		this.usuario = usuario;
 		this.contrasena = contrasena;
+		this.fechaConexion = new Timestamp(System.currentTimeMillis());
 		this.conn = new Connect();
 	}
 	
@@ -53,6 +59,8 @@ public class Sesion {
 			
 			if(contrasena.equals(this.contrasena))
 			{
+				this.id = id;
+				this.nombres = nombres;
 				return true;	
 			}
 			else
@@ -67,5 +75,25 @@ public class Sesion {
 			return false;
 		}
 		
+	}
+	
+	public int getId()
+	{
+		return this.id;
+	}
+	
+	public String getNombres()
+	{
+		return this.nombres;
+	}
+	
+	public String getUsuario()
+	{
+		return this.usuario;
+	}
+	
+	public String getFechaConexion()
+	{
+		return this.fechaConexion.toString();
 	}
 }

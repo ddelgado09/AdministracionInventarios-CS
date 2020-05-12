@@ -39,7 +39,7 @@ public class Login implements ActionListener {
 		lMensaje = new JLabel();
 		lMensaje.setBounds(90, 320, 250, 20);
 		
-		f = new JFrame();
+		f = new JFrame("Inicio de Sesión - Supermercados Chaotic");
 		f.add(lUsuario);
 		f.add(lContrasena);
 		f.add(txtUsuario);
@@ -52,6 +52,7 @@ public class Login implements ActionListener {
 		
 	}
 	
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		lMensaje.setText("");
@@ -68,7 +69,8 @@ public class Login implements ActionListener {
 			}
 			else
 			{
-				new Menu();
+				new Menu(inicioSesion);
+				f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
 //				lMensaje.setText("Exito");
 				
 			}
