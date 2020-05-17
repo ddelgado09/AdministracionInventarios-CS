@@ -60,12 +60,20 @@ public class Login implements ActionListener {
 			String usuario = txtUsuario.getText();
 			String contrasena = new String(txtContrasena.getPassword());
 			
+			if(usuario.equals("") || contrasena.equals(""))
+			{
+				txtContrasena.setText("");
+				lMensaje.setText("<html><font color=red>Ingrese el usuario y la contraseña</font></html>");
+				return;
+			}
+			
 			Sesion inicioSesion = new Sesion(usuario, contrasena);
 			boolean check = inicioSesion.checkUser();
 			
 			if(!check)
 			{
-				lMensaje.setText("Usuario o contraseña incorrectos");
+				txtContrasena.setText("");
+				lMensaje.setText("<html><font color=red>Usuario o contraseña incorrectos</font><html>");
 			}
 			else
 			{
