@@ -9,12 +9,20 @@ public class ProductoTemp {
 	private int id;
 	private String nombre;
 	private int cantidad;
-	private float valorUnitario;
+	private double valorUnitario;
 	private String proveedor;
 	
 	public ProductoTemp()
 	{
 		
+	}
+	
+	public ProductoTemp(String nombre, int cantidad, double valorUnitario, String proveedor)
+	{
+		this.nombre = nombre;
+		this.cantidad = cantidad;
+		this.valorUnitario = valorUnitario;
+		this.proveedor = proveedor;
 	}
 	
 	public ProductoTemp(int id, String nombre, int cantidad, float valorUnitario, String proveedor)
@@ -50,7 +58,7 @@ public class ProductoTemp {
 		this.cantidad = cantidad;
 	}
 
-	public float getValorUnitario() {
+	public double getValorUnitario() {
 		return this.valorUnitario;
 	}
 

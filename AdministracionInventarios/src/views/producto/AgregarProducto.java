@@ -128,7 +128,7 @@ public class AgregarProducto implements ActionListener {
 		
 		Productos setProd = new Productos();
 		int result = setProd.setProducto(prod);
-		System.out.println(result);
+		
 		switch(result)
 		{
 			case 0:

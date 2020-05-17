@@ -69,7 +69,6 @@ public class Menu implements ActionListener {
 	public void actionPerformed(ActionEvent e)
 	{
 		String action = e.getActionCommand();
-		System.out.println(action);
 		
 		switch(action)
 		{

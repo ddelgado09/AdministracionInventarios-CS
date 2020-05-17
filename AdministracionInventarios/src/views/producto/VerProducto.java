@@ -80,7 +80,7 @@ public class VerProducto {
 					this.data[n][0] = Integer.toString(listadoProductos[n].getId());
 					this.data[n][1] = listadoProductos[n].getNombre();
 					this.data[n][2] = Integer.toString(listadoProductos[n].getCantidad());
-					this.data[n][3] = Float.toString(listadoProductos[n].getValorUnitario());
+					this.data[n][3] = Double.toString(listadoProductos[n].getValorUnitario());
 					this.data[n][4] = listadoProductos[n].getProveedor();
 				}
 			}
