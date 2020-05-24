@@ -12,41 +12,36 @@ import views.producto.AgregarProducto;
 import views.producto.EliminarProducto;
 import views.producto.ModificarProducto;
 import views.producto.VerProducto;
+import views.proveedor.VerProveedor;
 
 public class Menu implements ActionListener {
+	
+	public Sesion sesion;
 	
 	private JFrame f;
 	private JLabel nombreSesion;
 	private JLabel fechaSesion;
-	private JButton btnCrear;
-	private JButton btnModificar;
-	private JButton btnVer;
-	private JButton btnEliminar;
+	private JButton btnVerProductos;
+	private JButton btnVerProveedores;
 	private JButton btnSalir;
 	
 	public Menu(Sesion sesion)
 	{
+		this.sesion = sesion;
+		
 		nombreSesion = new JLabel("Bienvenido(a): " + sesion.getNombres() + " - " + sesion.getRol());
 		nombreSesion.setBounds(15, 0, 400, 30);
 		
 		fechaSesion = new JLabel("Último inicio de sesión: " + sesion.getFechaConexion());
 		fechaSesion.setBounds(15, 20, 300, 30);
 		
-		btnCrear = new JButton("Agregar producto");
-		btnCrear.setBounds(80, 80, 200, 100);
-		btnCrear.addActionListener(this);
+		btnVerProductos = new JButton("Listado Productos");
+		btnVerProductos.setBounds(80, 80, 200, 30);
+		btnVerProductos.addActionListener(this);
 		
-		btnModificar = new JButton("Modificar datos producto");
-		btnModificar.setBounds(490, 80, 200, 100);
-		btnModificar.addActionListener(this);
-		
-		btnVer = new JButton("Ver los productos");
-		btnVer.setBounds(80, 290, 200, 100);
-		btnVer.addActionListener(this);
-		
-		btnEliminar = new JButton("Eliminar producto del registro");
-		btnEliminar.setBounds(490, 290, 200, 100);
-		btnEliminar.addActionListener(this);
+		btnVerProveedores = new JButton("Listado Proveedores");
+		btnVerProveedores.setBounds(80, 160, 200, 30);
+		btnVerProveedores.addActionListener(this);
 		
 		btnSalir = new JButton("Cerrar sesión");
 		btnSalir.setBounds(620, 20, 120, 20);
@@ -55,10 +50,8 @@ public class Menu implements ActionListener {
 		f = new JFrame("Menú Principal - Supermercados Chaotic");
 		f.add(nombreSesion);
 		f.add(fechaSesion);
-		f.add(btnCrear);
-		f.add(btnModificar);
-		f.add(btnVer);
-		f.add(btnEliminar);
+		f.add(btnVerProductos);
+		f.add(btnVerProveedores);
 		f.add(btnSalir);
 		f.setSize(800, 500);
 		f.setLayout(null);
@@ -72,20 +65,12 @@ public class Menu implements ActionListener {
 		
 		switch(action)
 		{
-			case "Agregar producto":
-				new AgregarProducto();
+			case "Listado Proveedores":
+				new VerProveedor(this.sesion);
 			break;
 			
-			case "Modificar datos producto":
-				new ModificarProducto();
-			break;
-			
-			case "Ver los productos":
-				new VerProducto();
-			break;
-			
-			case "Eliminar producto del registro":
-				new EliminarProducto();
+			case "Listado Productos":
+				new VerProducto(this.sesion);
 			break;
 			
 			case "Cerrar sesión":

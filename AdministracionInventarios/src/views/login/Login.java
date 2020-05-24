@@ -10,13 +10,13 @@ import views.menu.Menu;
 
 public class Login implements ActionListener {
 	
-	JFrame f;
-	JTextField txtUsuario;
-	JPasswordField txtContrasena;
-	JButton btnInicioSesion;
-	JLabel lUsuario;
-	JLabel lContrasena;
-	JLabel lMensaje;
+	private JFrame f;
+	private JTextField txtUsuario;
+	private JPasswordField txtContrasena;
+	private JButton btnInicioSesion;
+	private JLabel lUsuario;
+	private JLabel lContrasena;
+	private JLabel lMensaje;
 	
 	public Login()
 	{		
@@ -85,7 +85,7 @@ public class Login implements ActionListener {
 		}
 		catch (Exception ex)
 		{
-			System.out.println(ex);
+			ex.printStackTrace();
 		}
 	}
 }

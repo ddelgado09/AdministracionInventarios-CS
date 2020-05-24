@@ -12,10 +12,14 @@ import javax.swing.JTextField;
 
 import controller.Productos;
 import controller.Proveedores;
+import controller.Sesion;
 import templates.ProductoTemp;
+import templates.ProveedorTemp;
 
 public class AgregarProducto implements ActionListener {
 
+	public Sesion sesion;
+	
 	private JLabel tituloForm;
 	private JLabel lNombre;
 	private JTextField tNombre;
@@ -29,8 +33,10 @@ public class AgregarProducto implements ActionListener {
 	private JLabel lResultado;
 	private JFrame f;
 	
-	public AgregarProducto()
+	public AgregarProducto(Sesion sesion)
 	{
+		this.sesion = sesion;
+		
 		this.tituloForm = new JLabel("Formulario - Agregar Producto");
 		this.tituloForm.setBounds(20, 5, 300, 20);
 
@@ -136,7 +142,7 @@ public class AgregarProducto implements ActionListener {
 			break;
 			
 			case 1:
-				new VerProducto();
+				new VerProducto(this.sesion);
 				f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
 			break;
 			
@@ -147,10 +153,6 @@ public class AgregarProducto implements ActionListener {
 			case 3:
 				this.lResultado.setText("Ya existe un producto con el nombre ingresado");
 			break;
-			
-			case 4:
-				this.lResultado.setText("No se ha podido registrar el nuevo proveedor");
-			break;
 		}
 		
 	}
@@ -158,12 +160,14 @@ public class AgregarProducto implements ActionListener {
 	private String[] listaProveedores()
 	{
 		Proveedores prov = new Proveedores();
-		int len = prov.getProveedores(0).size();
+		ProveedorTemp[] listadoProveedores = prov.getProveedores(0);
+		
+		int len = listadoProveedores.length;
 		String[] listaProveedores = new String[len];
 		
 		for(int i = 0; i < len; ++i)
 		{
-			listaProveedores[i] = prov.getProveedores(0).get(i);
+			listaProveedores[i] = listadoProveedores[i].getNombre();
 		}
 		
 		return listaProveedores;

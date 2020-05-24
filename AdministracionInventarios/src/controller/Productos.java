@@ -57,6 +57,7 @@ public class Productos {
 						rs.getFloat("valor_unitario"), rs.getString("nombre_proveedor"));
 				result[n] = prod;
 				++n;
+				prod = null;
 			}
 			
 			return result;
@@ -73,7 +74,6 @@ public class Productos {
 	{
 		String queryGetProveedorId = "SELECT id FROM proveedores WHERE nombre = ?";
 		String queryCheckProducto = "SELECT COUNT(*) AS total_productos FROM productos WHERE LOWER(nombre) = LOWER(?)";
-		String queryInsertProveedor = "INSERT INTO proveedores(nombre) VALUES (?)";
 		String queryInsertProducto = "INSERT INTO productos(nombre, nombre_venta, "
 				+ "cantidad, valor_unitario, proveedor) VALUES (?, ?, ?, ?, ?)";
 		
