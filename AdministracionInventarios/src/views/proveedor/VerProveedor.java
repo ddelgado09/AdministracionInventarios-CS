@@ -72,7 +72,6 @@ public class VerProveedor extends JFrame implements ActionListener {
 		f.setLayout(null);
 		f.add(sp);
 		f.pack();
-		f.setLocationRelativeTo(this.lTitulo);
 		f.setSize(600, 560);
 		f.setVisible(true);
 	}
@@ -103,9 +102,9 @@ public class VerProveedor extends JFrame implements ActionListener {
 		if(listadoProveedores != null)
 		{
 			
-			int numProductos = listadoProveedores.length;
+			int numProveedores = listadoProveedores.length;
 			
-			if(numProductos == 0)
+			if(numProveedores == 0)
 			{
 				this.columns = new String[1];
 				this.columns[0] = "Sin Datos";
@@ -122,9 +121,9 @@ public class VerProveedor extends JFrame implements ActionListener {
 				this.columns[2] = "Editar";
 				this.columns[3] = "Eliminar";
 				
-				this.data = new String[numProductos][4];
+				this.data = new String[numProveedores][4];
 				
-				for(int n = 0; n < numProductos; ++n)
+				for(int n = 0; n < numProveedores; ++n)
 				{
 					this.data[n][0] = Integer.toString(listadoProveedores[n].getId());
 					this.data[n][1] = listadoProveedores[n].getNombre();
@@ -132,6 +131,14 @@ public class VerProveedor extends JFrame implements ActionListener {
 					this.data[n][3] = "Eliminar";
 				}
 			}
+		}
+		else
+		{
+			this.columns = new String[1];
+			this.columns[0] = "Error";
+			
+			this.data = new String[1][1];
+			this.data[0][0] = "Hubo un error al listar los datos";
 		}
 		
 		

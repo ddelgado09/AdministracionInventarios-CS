@@ -76,7 +76,6 @@ public class AgregarProveedor implements ActionListener {
 		Proveedores proveedor = new Proveedores();
 		
 		int result = proveedor.setProveedor(prov);
-		System.out.println(result);
 		
 		switch(result)
 		{

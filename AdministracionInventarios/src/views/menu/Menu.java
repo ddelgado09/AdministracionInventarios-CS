@@ -13,6 +13,7 @@ import views.producto.EliminarProducto;
 import views.producto.ModificarProducto;
 import views.producto.VerProducto;
 import views.proveedor.VerProveedor;
+import views.usuario.VerUsuario;
 
 public class Menu implements ActionListener {
 	
@@ -71,6 +72,10 @@ public class Menu implements ActionListener {
 			
 			case "Listado Productos":
 				new VerProducto(this.sesion);
+			break;
+			
+			case "Listado Usuarios":
+				new VerUsuario(this.sesion);
 			break;
 			
 			case "Cerrar sesión":
