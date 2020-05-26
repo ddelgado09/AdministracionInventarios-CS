@@ -1,16 +1,17 @@
 package templates;
 
-public class GestorInventarioTemp {
-	
+//Listo?
+
+public class GestInvTemp {
 	private int id;
 	private String nombre;
 	
-	public GestorInventarioTemp()
+	public GestInvTemp()
 	{
 		
 	}
 
-	public GestorInventarioTemp(int id, String nombre) {
+	public GestInvTemp(int id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -32,6 +33,5 @@ public class GestorInventarioTemp {
 		this.nombre = nombre;
 	}
 	
-	
-	
+
 }

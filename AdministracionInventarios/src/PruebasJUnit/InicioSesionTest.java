@@ -1,23 +1,22 @@
 package PruebasJUnit;
 
+//Listo?
+
 import static org.junit.Assert.*;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import controller.Sesion;
+public class InicioSesionTest {
 
-public class SesionTest {
-	
-	private SesionTest sesion = new SesionTest();
+	private InicioSesionTest sesion = new InicioSesionTest();
 
 	@Test
 	public void InicioSesion() {
 		Assert.assertEquals("jose123", true);
-		
-		
-		
-	}
-	
+		Assert.assertEquals("password", true);
 
 }
+	
+}	
+	

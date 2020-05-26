@@ -1,16 +1,17 @@
 package views.producto;
 
+//Listo?
+
 import java.awt.BorderLayout;
-import java.util.ArrayList;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
-import controller.Usuarios;
-import templates.GestorInventarioTemp;
-
-
-public class VerGestor {
-	
+public class VerGest {
 	
 	private String[] columns;
 	private String[][] data;
@@ -24,7 +25,7 @@ public class VerGestor {
 	private JButton bVolver;
 	
 	
-	public VerGestor()
+	public VerGest()
 	{
 		//this.emp = new Usuarios();
 		this.getProductos(0);
@@ -50,7 +51,7 @@ public class VerGestor {
 	
 	private void getProductos(int id)
 	{
-		GestorInventarioTemp[] listadoEmpleados = this.emp.getProductos(id);
+		GestInvTemp[] listadoEmpleados = this.emp.getProductos(id);
 		
 		if(listadoProductos != null)
 		{
@@ -86,6 +87,5 @@ public class VerGestor {
 		
 		
 	}
-	
 
 }
