@@ -19,7 +19,7 @@ public class Usuarios {
 	public UsuarioTemp[] getUsuarios(int id)
 	{
 		String queryGetCountUsuarios = "SELECT COUNT(*) AS total_usuarios FROM usuarios";
-		String queryGetUsuarios = "SELECT u.*, r.nombre AS nombre_rol FROM usuarios u INNER JOIN roles r ON u.rol = r.nombre";
+		String queryGetUsuarios = "SELECT u.*, r.nombre AS nombre_rol FROM usuarios u INNER JOIN roles r ON u.rol = r.id";
 		UsuarioTemp[] result;
 		
 		if(id != 0)
@@ -50,11 +50,11 @@ public class Usuarios {
 			while(rsGetUsuarios.next())
 			{
 				int idUsuario = rsGetUsuarios.getInt("id");
-				String nombreUsuario = rsGetUsuarios.getString("nombres") + rsGetUsuarios.getString("apellidos");
-				Date fechaNacimientoUsuario = rsGetUsuarios.getDate("fechaNacimiento");
+				String nombreUsuario = rsGetUsuarios.getString("nombre") + rsGetUsuarios.getString("apellido");
+				Date fechaNacimientoUsuario = rsGetUsuarios.getDate("fecha_nacimiento");
 				String nickUsuario = rsGetUsuarios.getString("nick");
 				String direccionUsuario = rsGetUsuarios.getString("direccion");
-				int telefonoUsuario = rsGetUsuarios.getInt("telefono");
+				long telefonoUsuario = rsGetUsuarios.getLong("telefono");
 				String emailUsuario = rsGetUsuarios.getString("email");
 				String rolUsuario = rsGetUsuarios.getString("nombre_rol");
 				result[n] = new UsuarioTemp(idUsuario, nombreUsuario, fechaNacimientoUsuario, nickUsuario, 

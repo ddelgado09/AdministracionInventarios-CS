@@ -24,6 +24,7 @@ public class Menu implements ActionListener {
 	private JLabel fechaSesion;
 	private JButton btnVerProductos;
 	private JButton btnVerProveedores;
+	private JButton btnVerUsuarios;
 	private JButton btnSalir;
 	
 	public Menu(Sesion sesion)
@@ -44,8 +45,13 @@ public class Menu implements ActionListener {
 		btnVerProveedores.setBounds(80, 160, 200, 30);
 		btnVerProveedores.addActionListener(this);
 		
+		btnVerUsuarios = new JButton("Listado Usuarios");
+		btnVerUsuarios.setBounds(80, 240, 200, 30);
+		btnVerUsuarios.addActionListener(this);
+		
+		
 		btnSalir = new JButton("Cerrar sesión");
-		btnSalir.setBounds(620, 20, 120, 20);
+		btnSalir.setBounds(320, 60, 120, 20);
 		btnSalir.addActionListener(this);
 		
 		f = new JFrame("Menú Principal - Supermercados Chaotic");
@@ -53,8 +59,12 @@ public class Menu implements ActionListener {
 		f.add(fechaSesion);
 		f.add(btnVerProductos);
 		f.add(btnVerProveedores);
+		if(this.sesion.getRol().equals("Administrador"))
+		{
+			f.add(btnVerUsuarios);
+		}
 		f.add(btnSalir);
-		f.setSize(800, 500);
+		f.setSize(500, 500);
 		f.setLayout(null);
 		f.setVisible(true);
 	}

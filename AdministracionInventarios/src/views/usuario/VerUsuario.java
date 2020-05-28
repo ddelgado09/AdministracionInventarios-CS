@@ -25,10 +25,10 @@ public class VerUsuario extends JFrame implements ActionListener {
 	
 	private JFrame f;
 	private JTable tUsuarios;
+	private JPanel panel;
 	private JScrollPane sp;
 	private JButton bAgregar;
 	private JButton bVolver;
-	private JPanel panel;
 	
 	public VerUsuario(Sesion sesion)
 	{
@@ -59,6 +59,7 @@ public class VerUsuario extends JFrame implements ActionListener {
 		this.bVolver.setBounds(300, 400, 200, 30);
 		this.bVolver.addActionListener(this);
 		
+		panel = new JPanel();
 		panel.setLayout(new BorderLayout());
 		
 		f = new JFrame("Listado Usuarios - Almacenes Chaotic");
@@ -129,7 +130,7 @@ public class VerUsuario extends JFrame implements ActionListener {
 					this.data[n][2] = listadoUsuarios[n].getFechaNacimiento().toString();
 					this.data[n][3] = listadoUsuarios[n].getNick();
 					this.data[n][4] = listadoUsuarios[n].getDireccion();
-					this.data[n][5] = Integer.toString(listadoUsuarios[n].getTelefono());
+					this.data[n][5] = Long.toString(listadoUsuarios[n].getTelefono());
 					this.data[n][6] = listadoUsuarios[n].getEmail();
 					this.data[n][7] = listadoUsuarios[n].getRol();
 					this.data[n][8] = "Editar";

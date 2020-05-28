@@ -10,12 +10,12 @@ public class UsuarioTemp {
 	private Date fechaNacimiento;
 	private String nick;
 	private String direccion;
-	private int telefono;
+	private long telefono;
 	private String email;
 	private String rol;
 	
 	public UsuarioTemp(int id, int cedula, String nombre, Date fechaNacimiento, 
-			String nick, String direccion, int telefono, String email, String rol)
+			String nick, String direccion, long telefono, String email, String rol)
 	{
 		this.id = id;
 		this.cedula = cedula;
@@ -29,7 +29,7 @@ public class UsuarioTemp {
 	}
 	
 	public UsuarioTemp(int cedula, String nombre, Date fechaNacimiento, 
-			String nick, String direccion, int telefono, String email, String rol)
+			String nick, String direccion, long telefono, String email, String rol)
 	{
 		this.cedula = cedula;
 		this.nombre = nombre;
@@ -89,11 +89,11 @@ public class UsuarioTemp {
 		this.direccion = direccion;
 	}
 
-	public int getTelefono() {
+	public long getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(long telefono) {
 		this.telefono = telefono;
 	}
 

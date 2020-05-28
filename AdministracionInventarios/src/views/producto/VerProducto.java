@@ -15,6 +15,7 @@ import templates.ProductoTemp;
 import utils.ButtonEditor;
 import utils.ButtonRenderer;
 import views.login.Login;
+import views.menu.Menu;
 
 public class VerProducto extends JFrame implements ActionListener {
 	
@@ -25,7 +26,6 @@ public class VerProducto extends JFrame implements ActionListener {
 	private JPanel panel;
 	private JLabel lTitulo;
 	private JTable tProductos;
-	private TableCellRenderer tableRenderer; 
 	private JScrollPane sp;
 	private JFrame f;
 	private Productos prod;
@@ -57,15 +57,13 @@ public class VerProducto extends JFrame implements ActionListener {
 		this.sp = new JScrollPane(this.tProductos);
 		this.sp.setBounds(0, 0, 600, 300);
 		
-		this.tableRenderer = tProductos.getDefaultRenderer(JButton.class);
-		
 		this.bAgregar = new JButton("Agregar Producto");
 		this.bAgregar.setBounds(30, 400, 200, 30);
 		this.bAgregar.addActionListener(this);
 		
 		this.bVolver = new JButton("Volver");
 		this.bVolver.setBounds(350, 400, 200, 30);
-		this.bAgregar.addActionListener(this);
+		this.bVolver.addActionListener(this);
 		
 		panel.setLayout(new BorderLayout());
 		
@@ -84,6 +82,7 @@ public class VerProducto extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e)
 	{
 		String action = e.getActionCommand();
+		System.out.println(action);
 		
 		switch(action)
 		{
@@ -92,7 +91,7 @@ public class VerProducto extends JFrame implements ActionListener {
 			break;
 			
 			case "Volver":
-				new Login();
+				new Menu(this.sesion);
 			break;
 		}
 		
